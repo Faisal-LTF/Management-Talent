@@ -7,10 +7,6 @@ if (!isset($_SESSION['nama'])) {
     echo "<meta http-equiv='refresh' content='0; url=../index.php'>";
 } else {
 
-    $id = $_SESSION['id_user'];
-    $query = mysqli_query($link, "SELECT * FROM users WHERE id_user = '$id' ");
-    $data = $query->fetch_array();
-
 ?>
 <script src="../assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
 
@@ -30,7 +26,7 @@ function confirmDelete(id) {
         buttonsStyling: false
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = `?page=hapus_user&id=${id}`;
+            window.location.href = `?page=hapus_pegawai&id=${id}`;
         }
     });
 }
@@ -40,45 +36,49 @@ function confirmDelete(id) {
 <div class="content-wrapper">
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="col-12 text-end mb-3">
-            <a href="?page=tambah_user" class="btn btn-primary">Tambah Data</a>
+            <a href="?page=tambah_pegawai" class="btn btn-primary">Tambah Data</a>
         </div>
         <div class="card">
             <div class="card-datatable table-responsive pt-0">
                 <table id="example" class="table align-items-center">
                     <thead>
                         <tr>
+                            <th></th>
                             <th>No</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th>Nama</th>
+                            <th class="text-center">Jenis Kelamin</th>
+                            <th class="text-center">Tempat Lahir</th>
+                            <th class="text-center">Tanggal Lahir</th>
+                            <th>Alamat</th>
+                            <th>nip</th>
+                            <th>golongan</th>
+                            <th>jabatan</th>
+                            <th>No Telepon</th>
+                            <th>Instansi</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $no = 1;
-                            $query = mysqli_query($link, "SELECT * FROM users");
+                            $query = mysqli_query($link, "SELECT * FROM pegawai");
                             $i = 1;
                             while ($row = $query->fetch_array()) {
                             ?>
                         <tr>
 
-                            <td class="w-0" align="left"><?= $i++ ?></td>
-                            <td class="w-5" align="left"><?= $row['username']; ?></td>
-                            <td class="w-30"><?= $row['email']; ?></td>
-                            <td class="w-5" align="left">
-                                <?php
-                                        if ($row['level'] == 0) {
-                                            echo "Admin";
-                                        } elseif ($row['level'] == 1) {
-                                            echo "Pegawai";
-                                        } elseif ($row['level'] == 2) {
-                                            echo "Masyarakat";
-                                        } elseif ($row['level'] == 3) {
-                                            echo "Camat";
-                                        }
-                                        ?>
-                            </td>
+                            <td align="left"></td>
+                            <td align="left"><?= $i++ ?></td>
+                            <td><?= $row['nama']; ?></td>
+                            <td><?= $row['jk']; ?></td>
+                            <td><?= $row['tempatLahir']; ?></td>
+                            <td class="w-10"><?= $row['tanggalLahir']; ?></td>
+                            <td><?= $row['alamat']; ?></td>
+                            <td><?= $row['nip']; ?></td>
+                            <td><?= $row['golongan']; ?></td>
+                            <td><?= $row['jabatan']; ?></td>
+                            <td><?= $row['no_tlp']; ?></td>
+                            <td><?= $row['instansi']; ?></td>
                             <td class="w-5">
                                 <div class=" mt-3">
                                     <button type="button"
@@ -88,15 +88,12 @@ function confirmDelete(id) {
                                     </button>
                                     <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4"
                                         role="menu">
-                                        <!-- <li><a class="dropdown-item border-radius-md"
-                                                href="?page=edit_user_password&id=<?= $row[0]; ?>"><i
-                                                    class="fa fa-edit"></i> Edit Password</a></li>
                                         <li><a class="dropdown-item border-radius-md"
-                                                href="?page=edit_user&id=<?= $row[0]; ?>"><i class="fa fa-edit"></i>
-                                                Edit Data</a></li> -->
+                                                href="?page=edit_pegawai&id=<?= $row[0]; ?>"><i class="fa fa-edit"></i>
+                                                Edit Data</a></li>
                                         <li><a class="dropdown-item border-radius-md"
                                                 onclick="confirmDelete(<?= $row[0]; ?>);" href="#">
-                                                <i class="fa fa-trash-o"></i> Hapus
+                                                <i class="fa fa-trash"></i> Hapus
                                             </a></li>
                                     </ul>
                                 </div>

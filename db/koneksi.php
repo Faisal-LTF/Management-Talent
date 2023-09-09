@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$DB = "db_test";
+$DB = "db_talenta";
 
 $link = new mysqli($host, $user, $pass, $DB);
 if ($link->connect_error) {

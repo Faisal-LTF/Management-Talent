@@ -66,7 +66,7 @@
                         <!-- Logo -->
                         <div class="app-brand justify-content-center mb-4 mt-2">
                             <a href="index.html" class="app-brand-link gap-2">
-                                <span class="app-brand-logo demo">
+                                <!-- <span class="app-brand-logo demo">
                                     <svg width="32" height="22" viewBox="0 0 32 22" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -82,13 +82,13 @@
                                             d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z"
                                             fill="#7367F0" />
                                     </svg>
-                                </span>
-                                <span class="app-brand-text demo text-body fw-bold ms-1">Vuexy</span>
+                                </span> -->
+                                <span class="app-brand-text demo text-body fw-bold ms-1">Management Talenta</span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-1 pt-2">Welcome to Vuexy! 👋
-                        </h4>
+                        <!-- <h4 class="mb-1 pt-2 text-center">Management Talenta
+                        </h4> -->
                         <p class="mb-4">Please sign-in to your account </p>
 
                         <form class="mb-3" action="db/cek_login.php" method="POST">
