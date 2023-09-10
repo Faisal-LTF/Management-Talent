@@ -1,5 +1,4 @@
 <body>
-
     <!-- layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <?php $level = $_SESSION['level'];
