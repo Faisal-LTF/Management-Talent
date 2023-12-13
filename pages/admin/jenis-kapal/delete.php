@@ -4,7 +4,7 @@
 <?php
 $id = $_GET['id'];
 
-$query = $link->query(" DELETE FROM users WHERE idUser = '$id' ");
+$query = $link->query(" DELETE FROM jenis_kapal WHERE idJenisKapal = '$id' ");
 if ($query) {
     echo "<script>
             Swal.fire({
@@ -15,7 +15,7 @@ if ($query) {
                     },
                     buttonsStyling: false
                 }).then(function() {
-                window.location.href = '?page=data_user'; 
+                window.location.href = '?page=data_jenisKapal'; 
             });
         </script>";
 } else {
@@ -29,7 +29,7 @@ if ($query) {
                     },
                     buttonsStyling: false
                 }).then(function() {
-                window.location.href = '?page=data_user'; 
+                window.location.href = '?page=data_jenisKapal'; 
             });
         </script>";
 }

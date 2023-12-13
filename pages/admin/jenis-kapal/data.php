@@ -8,7 +8,7 @@ if (!isset($_SESSION['nama'])) {
 } else {
 
     // $id = $_SESSION['idUser'];
-    // $query = mysqli_query($link, "SELECT * FROM users WHERE idUser = '$id' ");
+    // $query = mysqli_query($link, "SELECT * FROM jenis_kapal WHERE idJenisKapal = '$id' ");
     // $data = $query->fetch_array();
 
 ?>
@@ -30,7 +30,7 @@ if (!isset($_SESSION['nama'])) {
                 buttonsStyling: false
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = `?page=hapus_user&id=${id}`;
+                    window.location.href = `?page=hapus_jenisKapal&id=${id}`;
                 }
             });
         }
@@ -40,7 +40,7 @@ if (!isset($_SESSION['nama'])) {
     <div class="content-wrapper">
         <div class="container-xxl flex-grow-1 container-p-y">
             <div class="col-12 text-end mb-3">
-                <a href="?page=tambah_user" class="btn btn-primary">Tambah Data</a>
+                <a href="?page=tambah_jenisKapal" class="btn btn-primary">Tambah Data</a>
             </div>
             <div class="card">
                 <div class="card-datatable table-responsive pt-0">
@@ -48,47 +48,28 @@ if (!isset($_SESSION['nama'])) {
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>Jenis KapaL</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            $query = mysqli_query($link, "SELECT * FROM users");
+                            $query = mysqli_query($link, "SELECT * FROM jenis_kapal");
                             $i = 1;
                             while ($row = $query->fetch_array()) {
                             ?>
                                 <tr>
 
                                     <td class="w-0" align="left"><?= $i++ ?></td>
-                                    <td class="w-5" align="left"><?= $row['username']; ?></td>
-                                    <td><?= $row['password']; ?></td>
-                                    <td class="w-30"><?= $row['email']; ?></td>
-                                    <td class="w-5" align="left">
-                                        <?php
-                                        if ($row['level'] == 0) {
-                                            echo "Admin";
-                                        } elseif ($row['level'] == 1) {
-                                            echo "Pegawai";
-                                        } elseif ($row['level'] == 2) {
-                                            echo "Masyarakat";
-                                        } elseif ($row['level'] == 3) {
-                                            echo "Camat";
-                                        }
-                                        ?>
-                                    </td>
+                                    <td class="w-5" align="left"><?= $row['namaJenisKapal']; ?></td>
                                     <td class="w-5">
                                         <div class=" mt-3">
                                             <button type="button" class="btn btn-primary dropdown-toggle border-radius-lg px-3 py-1 " id="dropdownMenuButton" data-bs-toggle="dropdown">
                                                 <i class="fa fa-bars"></i>
                                             </button>
                                             <ul class="dropdown-menu shadow-lg mt-2  dropdown-menu-end px-2 py-2 me-sm-n4" role="menu">
-                                                <li><a class="dropdown-item border-radius-md" href="?page=edit_user_password&id=<?= $row[0]; ?>"><i class="fa fa-edit"></i> Edit Password</a></li>
-                                                <li><a class="dropdown-item border-radius-md" href="?page=edit_user&id=<?= $row[0]; ?>"><i class="fa fa-edit"></i>
+                                                <li><a class="dropdown-item border-radius-md" href="?page=edit_jenisKapal&id=<?= $row[0]; ?>"><i class="fa fa-edit"></i>
                                                         Edit Data</a></li>
                                                 <li><a class="dropdown-item border-radius-md" onclick="confirmDelete(<?= $row[0]; ?>);" href="#">
                                                         <i class="fa fa-trash-o"></i> Hapus

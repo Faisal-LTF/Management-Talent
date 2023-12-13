@@ -11,7 +11,7 @@ if (isset($_POST['log'])) {
   $data = $query->fetch_array();
 
   if ($data !== null) {
-    $id = $data['id_user'];
+    $id = $data['idUser'];
     $username = $data['username'];
     $password = $data['password'];
     $level = $data['level'];
@@ -19,7 +19,7 @@ if (isset($_POST['log'])) {
 
     if ($user == $username && $pass == $password) {
       session_start();
-      $_SESSION['id_user'] = $id;
+      $_SESSION['idUser'] = $id;
       $_SESSION['nama'] = $username;
       $name = $_SESSION['nama'];
       $_SESSION['level'] = $level;
